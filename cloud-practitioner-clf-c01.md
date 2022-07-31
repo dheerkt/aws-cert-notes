@@ -323,125 +323,125 @@ Exam format:
             * Fully managed serverless graph database for highly connected services like social media sites
             * Fast and reliable
 * Migrations
-        * Database Migration Service (DMS)
-            * Migrate to or within AWS, homogenous or heterogenous migrations
-            * Continuous data replication
-            * Virtually no downtime
-            * Use cases:
-                * OP Oracle to Aurora MySQL
-                * OP Oracle to RDS Oracle
-                * RDS Oracle to Aurora MySQL
-        * Server Migration Service (SMS)
-            * Migrates on-premises servers to AWS
-            * Server saved as new AMI
-            * Use AMI to launch servers as EC2 instances
-        * Snow Family
-            * Snowcone
-                * Smallest, holds 8TB of usable storage
-                * Offline or online shipping with DataSync
-            * Snowball and Snowball Edge
-                * Petabyte-scale data transport, in and out
-                * Cheaper than internet transfer
-                * Supports EC2 and Lambda
-            * Snowmobile
-                * Exabyte scale data
-                * Data loaded to S3
-                * Secure transportation — GPS monitoring, security escort, etc.
-            * DataSync
-                * Migrate data from on-premises to AWS storage services like S3 or EFS
-                * Copy data over Direct Connect or the internet
-                * Copy data between AWS storage services
-                * Replicate data across regions or accounts
+    * Database Migration Service (DMS)
+        * Migrate to or within AWS, homogenous or heterogenous migrations
+        * Continuous data replication
+        * Virtually no downtime
+        * Use cases:
+            * OP Oracle to Aurora MySQL
+            * OP Oracle to RDS Oracle
+            * RDS Oracle to Aurora MySQL
+    * Server Migration Service (SMS)
+        * Migrates on-premises servers to AWS
+        * Server saved as new AMI
+        * Use AMI to launch servers as EC2 instances
+    * Snow Family
+        * Snowcone
+            * Smallest, holds 8TB of usable storage
+            * Offline or online shipping with DataSync
+        * Snowball and Snowball Edge
+            * Petabyte-scale data transport, in and out
+            * Cheaper than internet transfer
+            * Supports EC2 and Lambda
+        * Snowmobile
+            * Exabyte scale data
+            * Data loaded to S3
+            * Secure transportation — GPS monitoring, security escort, etc.
+        * DataSync
+            * Migrate data from on-premises to AWS storage services like S3 or EFS
+            * Copy data over Direct Connect or the internet
+            * Copy data between AWS storage services
+            * Replicate data across regions or accounts
 * Analytics Services
-        * Amazon Redshift
-            * Scalable data warehousing solution, used to consolidate data from multiple sources or relational databases
-            * Exabyte-scale
-        * Athena
-            * Serverless SQL query service for S3
-            * Pay per query
-        * Glue
-            * ETL service to prepare and load data for analytics
-        * Kinesis
-            * Analyze real-time streaming data
-            * Supports video, audio, logs, website clickstreams, and IoT
-        * Elastic MapReduce (EMR)
-            * Big data processing using Hadoop and big data frameworks
-        * Data Pipeline
-            * Move data between compute and storage services on AWS or on-premises
-            * Move data at specific intervals or based on certain conditions
-            * Sends success/failure notifications
-        * QuickSight
-            * Visualize data using dashboards and embed into applications
+    * Amazon Redshift
+        * Scalable data warehousing solution, used to consolidate data from multiple sources or relational databases
+        * Exabyte-scale
+    * Athena
+        * Serverless SQL query service for S3
+        * Pay per query
+    * Glue
+        * ETL service to prepare and load data for analytics
+    * Kinesis
+        * Analyze real-time streaming data
+        * Supports video, audio, logs, website clickstreams, and IoT
+    * Elastic MapReduce (EMR)
+        * Big data processing using Hadoop and big data frameworks
+    * Data Pipeline
+        * Move data between compute and storage services on AWS or on-premises
+        * Move data at specific intervals or based on certain conditions
+        * Sends success/failure notifications
+    * QuickSight
+        * Visualize data using dashboards and embed into applications
 * Machine Learning
-        * Rekognition
-            * Automate image + video analysis
-            * Identify custom images and perform face/text detection in videos/images
-        * Comprehend
-            * Natural language processing service that uncovers insights and relationships in text
-        * Polly
-            * Text to speech, natural sounding voice
-            * Creates custom voice
-        * SageMaker
-            * Prep/train/deploy data for models
-            * Deep learning AMIs
-        * Translate
-            * Real-time and batch translation across multiple languages
-            * Translates many content formats
-        * Lex
-            * Recognize speech and understand language to build highly engaging chatbots
-            * Powers Amazon Alexa
+    * Rekognition
+        * Automate image + video analysis
+        * Identify custom images and perform face/text detection in videos/images
+    * Comprehend
+        * Natural language processing service that uncovers insights and relationships in text
+    * Polly
+        * Text to speech, natural sounding voice
+        * Creates custom voice
+    * SageMaker
+        * Prep/train/deploy data for models
+        * Deep learning AMIs
+    * Translate
+        * Real-time and batch translation across multiple languages
+        * Translates many content formats
+    * Lex
+        * Recognize speech and understand language to build highly engaging chatbots
+        * Powers Amazon Alexa
 * Developer Tools
-        * Cloud9
-            * Browser IDE allowing writing/debugging code
-            * Supports several popular languages
-        * CodeCommit
-            * Source control system for private Git repositories
-            * Collaborate with other software developers
-        * CodeBuild
-            * Build/test source code before deploying
-            * Enables CI/CD
-        * CodeDeploy
-            * Deploys code to EC2, Fargate, Lambda, and on-premises
-            * Maintains application uptime through rolling deployments
-        * CodePipeline
-            * Integrates CodeBuild, CodeCommit and CodeDeploy to quickly deliver new features/updates
-        * X-Ray
-            * Analyze/debug production applications
-            * Map application components
-            * View end-to-end requests
-        * CodeStar
-            * Helps developers collab on projects by connecting developer environments
-            * Integrates with CodeBuild, CodeCommit, and CodeDeploy
-            * Contains issue tracking dashboard
+    * Cloud9
+        * Browser IDE allowing writing/debugging code
+        * Supports several popular languages
+    * CodeCommit
+        * Source control system for private Git repositories
+        * Collaborate with other software developers
+    * CodeBuild
+        * Build/test source code before deploying
+        * Enables CI/CD
+    * CodeDeploy
+        * Deploys code to EC2, Fargate, Lambda, and on-premises
+        * Maintains application uptime through rolling deployments
+    * CodePipeline
+        * Integrates CodeBuild, CodeCommit and CodeDeploy to quickly deliver new features/updates
+    * X-Ray
+        * Analyze/debug production applications
+        * Map application components
+        * View end-to-end requests
+    * CodeStar
+        * Helps developers collab on projects by connecting developer environments
+        * Integrates with CodeBuild, CodeCommit, and CodeDeploy
+        * Contains issue tracking dashboard
 * Deployment & Infrastructure Management
-        * Infrastructure-as-Code
-            * Scripts to provision AWS resources in a reproducible manner
-            * Automation saves time, reduces errors
-            * JSON/YAML
-        * CloudFormation
-            * Allows IaC to provide repeatable process to provision resources
-            * Works with most AWS services
-            * Create templates
-        * Elastic Beanstalk
-            * Orchestration service used to deploy and scale web apps by provisioning more or less resources to autoscale
-            * Capcity provisioning/Load balancing/Auto scaling
-            * Monitor the health of your resources
-        * OpsWorks
-            * Works with Chef/Puppet to automate configuration of your servers and code
-            * Manage on-premises servers or EC2 cloud instances
+    * Infrastructure-as-Code
+        * Scripts to provision AWS resources in a reproducible manner
+        * Automation saves time, reduces errors
+        * JSON/YAML
+    * CloudFormation
+        * Allows IaC to provide repeatable process to provision resources
+        * Works with most AWS services
+        * Create templates
+    * Elastic Beanstalk
+        * Orchestration service used to deploy and scale web apps by provisioning more or less resources to autoscale
+        * Capcity provisioning/Load balancing/Auto scaling
+        * Monitor the health of your resources
+    * OpsWorks
+        * Works with Chef/Puppet to automate configuration of your servers and code
+        * Manage on-premises servers or EC2 cloud instances
 * Messaging and Integration Services
-        * SQS
-            * Loose coupling is best policy for cloud computing
-                * Break systems into microservices which are connected but not dependent on each other
-            * Queues help implement loose coupling
-                * Messages wait in queue to be received in FIFO format (...in most cases)
-                * SQS allows component-to-component communication through async messages
-        * SNS
-            * Send emails/texts from applications
-            * Publish to topic, and subscribers receive those messages
-        * SES
-            * Send/receive richly formatted emails from applications (HTML emails)
-            * Ideal for marketing campaigns or professional emails
+    * SQS
+        * Loose coupling is best policy for cloud computing
+            * Break systems into microservices which are connected but not dependent on each other
+        * Queues help implement loose coupling
+            * Messages wait in queue to be received in FIFO format (...in most cases)
+            * SQS allows component-to-component communication through async messages
+    * SNS
+        * Send emails/texts from applications
+        * Publish to topic, and subscribers receive those messages
+    * SES
+        * Send/receive richly formatted emails from applications (HTML emails)
+        * Ideal for marketing campaigns or professional emails
 * Auditing, Monitoring, and Logging
     * Proactively find and resolve errors
     * CloudWatch — Collection of services
