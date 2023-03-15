@@ -264,250 +264,250 @@
         * Common errors 
             * Specifying invalid/extra hyperparameters
             * Incorrect input file formats
-            * 
 
 ## Algorithms
 
-    * Concepts
-        * Definition — An algorithm is a bunch of unambiguous repeatable steps to consistently solve a class of problems
-        * Supervised learning
-            * Dataset is labelled
-            * Model must be trained
-        * Unsupervised learning
-            * Unlabelled dataset
-            * Model learns “on the job”; no formal training
-        * Reinforcement learning
-            * Model is trained to maximize reward
-    * Regression
-        * Linear Learner Algorithm — minimizes error using stochastic gradient descent
-            * Supervised
-            * Pros/Cons
-                * Very flexible — well suited for discrete or continuous inferences
-                * Good first choice — used to explore different objectives 
-                * Built-in tuning — internal mechanism for tuning hyper-parameters 
-            * Use cases
-                * Regression — predict quantitative values based on given numeric input
-                * Discrete binary classification (eg. Yes/No)
-                * Discrete multi-class classification (eg. Email/Phone Call/Text)
-        * Factorized Machines Algorithm — regression algorithm for high-dimensional sparse datasets
-            * Recommender model
-            * Supervised
-            * Pros/Cons
-                * Considers only pair-wise features
-                * CSV not supported
-                * Doesn’t work for multi-class classification
-                * Really needs LOTS of data (10,000 to 10,000,000 feature input space recommended)
-                * CPUs are better for sparse data
-                * Don’t perform well on dense data
-            * Use cases
-                * High-dimensional sparse data — Lots of rows but missing columns
-                * Recommendations (eg. Netflix)
-    * Clustering
-        * K-means Algorithm — takes a list of things with attributes, and groups things according to similar attributes in K clusters
-            * Unsupervised
-            * Pros/Cons
-                * Expects tabular data
-                * Define identifying attributes
-                * CPU instances recommended — or only 1 GPU
-                * Training is still a thing — to be sure your model is accurate
-                * Define a number of features and clusters
-    * Classification
-        * K-nearest neighbor — predicts value based on what the K objects that you’re closest to (or average values of those you’re closest to)
-            * Supervised
-            * K-means Algorithm can be applied when you don’t know what features are most impactful and can’t use clustering
-            * Pros/Cons
-                * You choose k value of neighbors
-                * Lazy algorithm — training data is used not to generalize but to figure out what’s nearby
-                * Training data stays in-memory
-                * Beware of bias... known for stereotyping
-            * Use cases
-                * Credit ratings
-                * Product recommendations
-        * Image Analysis models — classifies based on images fed into model
-            * Supervised
-            * Usually returns a confidence % level
-            * We can set an accuracy threshold based on this % value to filter out inaccuracies
-            * Subclasses of Image Analysis algorithms
-                * Image Classification — determines classification of an image
-                * Object Detection — detects specific objects inside an image and assigns confidence score
-                * Semantic Segmentation — identifies edges of objects
-                    * Accepts PNG input
-                    * Only supports GPU training
-                    * Can be deployed to either CPU or GPU
-            * Use cases
-                * Computer vision systems
-                * Image metadata extraction
-    * Anomaly Detection
-        * Random Cut Forest — find occurrences significantly beyond normal distribution (3+ s.d.) that could mess up model training
-            * Unsupervised
-            * Gives anomaly score to data points (low means normal, high means anomaly)
-            * Scales well with size of data
-            * Doesn’t benefit from GPUs
-            * Use cases
-                * Quality control
-                * Fraud detection
-        * IP Insights — can flag odd online behavior for review
-            * Unsupervised
-            * Pros/Cons
-                * Ingests entity/IP address pairs
-                * Returns inference via a score
-                * Uses neural network
-                * GPUs recommended for training; CPUs for inference
-            * Use cases
-                * Tier-ed authentication models
-                * Fraud detection
-    * Text Analysis
-        * Latent Dirichlet Allocation (LDA) — find how similar documents are
-            * Unsupervised
-            * Use cases
-                * Recommend articles on similar topics which you might have read in the past
-                * Musical influence modeling
-        * Neural Topic Model (NTM) — similar use and function to LDA, but different algorithm which might yield different result
-        * Sequence-to-Sequence — Language translation engine that takes input text and predicts what it might be in another language. Must supply training data and vocabulary.
-            * Supervised
-            * Pros/Cons
-                * Intense training, only GPU instance are supported
-                * Commonly initialized with pre-trained word libraries
-                * Steps consist of embedding, encoding, and decoding
-            * Use cases
-                * Language translations
-                * Speech to Text
-        * BlazingText — optimized way to determine contextual semantic relationships between words in text
-            * Supervised (Text Classficiation) or Unsupervised (Word2Vec)
-            * Pros/Cons
-                * Expects single preprocessed text file
-                * Highly scalable
-                * Faster than FB’s FastText
-            * Use cases
-                * Sentiment analysis — Amazon Comprehend
-                * Classify documents — Amazon Macie
-        * Object2Vec — map out things in d-dimensional space to figure out how similar they might be to each other
-            * Supervised
-            * Ellaboration of Word2Vec
-            * Pros/Cons
-                * Expects data in pairs
-                * Feature engineering
-                * Training data is required
-            * Use cases
-                * Recommendation
-                * Movie rating prediction
-                * Document classification
-    * Reinforcement Learning — find path to greatest reward
+* Concepts
+    * Definition — An algorithm is a bunch of unambiguous repeatable steps to consistently solve a class of problems
+    * Supervised learning
+        * Dataset is labelled
+        * Model must be trained
+    * Unsupervised learning
+        * Unlabelled dataset
+        * Model learns “on the job”; no formal training
+    * Reinforcement learning
+        * Model is trained to maximize reward
+* Regression
+    * Linear Learner Algorithm — minimizes error using stochastic gradient descent
+        * Supervised
+        * Pros/Cons
+            * Very flexible — well suited for discrete or continuous inferences
+            * Good first choice — used to explore different objectives 
+            * Built-in tuning — internal mechanism for tuning hyper-parameters 
         * Use cases
-            * Autonomous vehicles
-            * Intelligent HVAC control
-    * Forecasting
-        * DeepAR — predict point-in-time values and estimated values over a time-frame and use multiple sets of historic data
-            * Supervised
-            * Cold-start problem — no historical data, so DeepAR allows us to combine multiple datasets of similar items to predict performance of new items
-            * Pros/Cons
-                * Supports various time series
-                * More time series is better
-                * Must supply at least 300 observations
-                * Must supply some hyperparameters — context length, epochs, prediction length,  time frequency
-                * Automatic evaluation of model
-            * Use cases
-                * Predict new product performance
-                * Predict labor needs
-    * Ensemble Learning — use multiple algorithms to improve model accuracy
-        * Extreme Gradient Boosting (XGBoost) — swiss-army knife for all sorts of regression, classification, and ranking problems
-            * Supervised
-            * Very flexible — only 2 required hyperparameters, and 35 optional
-            * Uses decision trees to improve on regression
-            * Pros/Cons
-                * Accepts CSV and libsvm
-                * Memory-bound/memory-intensive
-                * Only CPU training
-                * Spark integration — can call directly from Spark environment
-            * Use cases
-                * Ranking products or search results
-                * Fraud detection
+            * Regression — predict quantitative values based on given numeric input
+            * Discrete binary classification (eg. Yes/No)
+            * Discrete multi-class classification (eg. Email/Phone Call/Text)
+    * Factorized Machines Algorithm — regression algorithm for high-dimensional sparse datasets
+        * Recommender model
+        * Supervised
+        * Pros/Cons
+            * Considers only pair-wise features
+            * CSV not supported
+            * Doesn’t work for multi-class classification
+            * Really needs LOTS of data (10,000 to 10,000,000 feature input space recommended)
+            * CPUs are better for sparse data
+            * Don’t perform well on dense data
+        * Use cases
+            * High-dimensional sparse data — Lots of rows but missing columns
+            * Recommendations (eg. Netflix)
+* Clustering
+    * K-means Algorithm — takes a list of things with attributes, and groups things according to similar attributes in K clusters
+        * Unsupervised
+        * Pros/Cons
+            * Expects tabular data
+            * Define identifying attributes
+            * CPU instances recommended — or only 1 GPU
+            * Training is still a thing — to be sure your model is accurate
+            * Define a number of features and clusters
+* Classification
+    * K-nearest neighbor — predicts value based on what the K objects that you’re closest to (or average values of those you’re closest to)
+        * Supervised
+        * K-means Algorithm can be applied when you don’t know what features are most impactful and can’t use clustering
+        * Pros/Cons
+            * You choose k value of neighbors
+            * Lazy algorithm — training data is used not to generalize but to figure out what’s nearby
+            * Training data stays in-memory
+            * Beware of bias... known for stereotyping
+        * Use cases
+            * Credit ratings
+            * Product recommendations
+    * Image Analysis models — classifies based on images fed into model
+        * Supervised
+        * Usually returns a confidence % level
+        * We can set an accuracy threshold based on this % value to filter out inaccuracies
+        * Subclasses of Image Analysis algorithms
+            * Image Classification — determines classification of an image
+            * Object Detection — detects specific objects inside an image and assigns confidence score
+            * Semantic Segmentation — identifies edges of objects
+                * Accepts PNG input
+                * Only supports GPU training
+                * Can be deployed to either CPU or GPU
+        * Use cases
+            * Computer vision systems
+            * Image metadata extraction
+
+* Anomaly Detection
+    * Random Cut Forest — find occurrences significantly beyond normal distribution (3+ s.d.) that could mess up model training
+        * Unsupervised
+        * Gives anomaly score to data points (low means normal, high means anomaly)
+        * Scales well with size of data
+        * Doesn’t benefit from GPUs
+        * Use cases
+            * Quality control
+            * Fraud detection
+    * IP Insights — can flag odd online behavior for review
+        * Unsupervised
+        * Pros/Cons
+            * Ingests entity/IP address pairs
+            * Returns inference via a score
+            * Uses neural network
+            * GPUs recommended for training; CPUs for inference
+        * Use cases
+            * Tier-ed authentication models
+            * Fraud detection
+* Text Analysis
+    * Latent Dirichlet Allocation (LDA) — find how similar documents are
+        * Unsupervised
+        * Use cases
+            * Recommend articles on similar topics which you might have read in the past
+            * Musical influence modeling
+    * Neural Topic Model (NTM) — similar use and function to LDA, but different algorithm which might yield different result
+    * Sequence-to-Sequence — Language translation engine that takes input text and predicts what it might be in another language. Must supply training data and vocabulary.
+        * Supervised
+        * Pros/Cons
+            * Intense training, only GPU instance are supported
+            * Commonly initialized with pre-trained word libraries
+            * Steps consist of embedding, encoding, and decoding
+        * Use cases
+            * Language translations
+            * Speech to Text
+    * BlazingText — optimized way to determine contextual semantic relationships between words in text
+        * Supervised (Text Classficiation) or Unsupervised (Word2Vec)
+        * Pros/Cons
+            * Expects single preprocessed text file
+            * Highly scalable
+            * Faster than FB’s FastText
+        * Use cases
+            * Sentiment analysis — Amazon Comprehend
+            * Classify documents — Amazon Macie
+    * Object2Vec — map out things in d-dimensional space to figure out how similar they might be to each other
+        * Supervised
+        * Ellaboration of Word2Vec
+        * Pros/Cons
+            * Expects data in pairs
+            * Feature engineering
+            * Training data is required
+        * Use cases
+            * Recommendation
+            * Movie rating prediction
+            * Document classification
+* Reinforcement Learning — find path to greatest reward
+    * Use cases
+        * Autonomous vehicles
+        * Intelligent HVAC control
+* Forecasting
+    * DeepAR — predict point-in-time values and estimated values over a time-frame and use multiple sets of historic data
+        * Supervised
+        * Cold-start problem — no historical data, so DeepAR allows us to combine multiple datasets of similar items to predict performance of new items
+        * Pros/Cons
+            * Supports various time series
+            * More time series is better
+            * Must supply at least 300 observations
+            * Must supply some hyperparameters — context length, epochs, prediction length,  time frequency
+            * Automatic evaluation of model
+        * Use cases
+            * Predict new product performance
+            * Predict labor needs
+* Ensemble Learning — use multiple algorithms to improve model accuracy
+    * Extreme Gradient Boosting (XGBoost) — swiss-army knife for all sorts of regression, classification, and ranking problems
+        * Supervised
+        * Very flexible — only 2 required hyperparameters, and 35 optional
+        * Uses decision trees to improve on regression
+        * Pros/Cons
+            * Accepts CSV and libsvm
+            * Memory-bound/memory-intensive
+            * Only CPU training
+            * Spark integration — can call directly from Spark environment
+        * Use cases
+            * Ranking products or search results
+            * Fraud detection
 
 ## Evaluation and Optimization
 
-    * Evaluation feedback loop: Define evaluation metric → evaluate → tune model → repeat
-        * Offline validation — done using test set of data
-            * Eg. K-fold validation
-        * Online validation — done using real-world conditions
-            * Eg. Canary deployment or A/B testing
-                * Canary deployment is sending a small portion of real-world data to new environment
-    * Algorithm metrics
-        * Training metrics — used during training process
-            * Have a test-prefix
-        * Validation metrics — used during test 
-            * Have a validation-prefix
-        * SageMaker algorithms automatically sends logs to CloudWatch
-            * Use logs to monitor these metrics and fine-tune
-    * Evaluating model accuracy
-        * Underfitting — model isn’t reflective of underlying data
-            * Resolution: introduce more data, or train for longer
-        * Overfitting — model is too dependent on specific training data, and memorizes instead of generalizing
-            * Denoted by low training error but high testing error
-            * Resolutions: 
-                * Add more data
-                * Sprinkle noise to generalize model
-                * Regulate data by creating constraints around weights
-                * Reduce training time
-                * Try ensembles — amplify individual weaker models and smooth out strong models
-                * Ditch some features — too many features may drown signal with noise
-        * Regression accuracy
-            * Residuals — difference between predicted and actual values
-                * Shows whether you’re consistently predicting higher or lower than actual values
-                * RMSE measures this — Root Mean Squared Error
-        * Binary classification accuracy
-            * False positives — Type I error
-            * False negatives — Type II error
-            * Area under the curve metric
-                * Precision —> True positives / (True positives + False negatives)
-                    * Legit emails get blocked
-                * Recall —> True positives / (True positvies + False positives)
-                    * Spam gets through
-                * F1 score — balance between precision and recall, a larger value indicates better predictive accuracy
-                    * 2 * (Precision * Recall) / (Precision + Recall)
-        * Multi classification accuracy
-            * Compute F1 score heatmaps
-        * Improve model accuracy
-            * Collect more data
-            * Improve feature processing so that features are more representative
-            * Model parameter tuning — adjust hyperparameters
-    * Model Tuning — making small hyperparameter adjustments to improve performance/reduce error
-        * SageMaker offers automatic model tuning
-            * Choose a tunable hyperparameter — only some can be autotuned, consult documentation
-            * Choose range of values for that parameter
-            * Choose objective metric that auto-tuning seeks to optimize
-            * Uses bayesian optimization
-            * Not a perfect solution and may result in a weaker model
+* Evaluation feedback loop: Define evaluation metric → evaluate → tune model → repeat
+    * Offline validation — done using test set of data
+        * Eg. K-fold validation
+    * Online validation — done using real-world conditions
+        * Eg. Canary deployment or A/B testing
+            * Canary deployment is sending a small portion of real-world data to new environment
+* Algorithm metrics
+    * Training metrics — used during training process
+        * Have a test-prefix
+    * Validation metrics — used during test 
+        * Have a validation-prefix
+    * SageMaker algorithms automatically sends logs to CloudWatch
+        * Use logs to monitor these metrics and fine-tune
+* Evaluating model accuracy
+    * Underfitting — model isn’t reflective of underlying data
+        * Resolution: introduce more data, or train for longer
+    * Overfitting — model is too dependent on specific training data, and memorizes instead of generalizing
+        * Denoted by low training error but high testing error
+        * Resolutions: 
+            * Add more data
+            * Sprinkle noise to generalize model
+            * Regulate data by creating constraints around weights
+            * Reduce training time
+            * Try ensembles — amplify individual weaker models and smooth out strong models
+            * Ditch some features — too many features may drown signal with noise
+    * Regression accuracy
+        * Residuals — difference between predicted and actual values
+            * Shows whether you’re consistently predicting higher or lower than actual values
+            * RMSE measures this — Root Mean Squared Error
+    * Binary classification accuracy
+        * False positives — Type I error
+        * False negatives — Type II error
+        * Area under the curve metric
+            * Precision —> True positives / (True positives + False negatives)
+                * Legit emails get blocked
+            * Recall —> True positives / (True positvies + False positives)
+                * Spam gets through
+            * F1 score — balance between precision and recall, a larger value indicates better predictive accuracy
+                * 2 * (Precision * Recall) / (Precision + Recall)
+    * Multi classification accuracy
+        * Compute F1 score heatmaps
+    * Improve model accuracy
+        * Collect more data
+        * Improve feature processing so that features are more representative
+        * Model parameter tuning — adjust hyperparameters
+* Model Tuning — making small hyperparameter adjustments to improve performance/reduce error
+    * SageMaker offers automatic model tuning
+        * Choose a tunable hyperparameter — only some can be autotuned, consult documentation
+        * Choose range of values for that parameter
+        * Choose objective metric that auto-tuning seeks to optimize
+        * Uses bayesian optimization
+        * Not a perfect solution and may result in a weaker model
 
 ## Implementations and Operations
 
-    * Types of Usage
-        * Offline Usage
-            * Make inferences in batch and return results as a set
-            * Entire dataset is required before using as an input
-            * Eg. predictive models with large historic dataset inputs
-        * Online Usage
-            * Make inferences on-demand via API or service
-            * Not viable for in-memory algorithms
-            * Eg. realtime fraud detection or autonomous machines
-    * Deployment Types
-        * “Big Bang”
-            * Highest risk
-            * Deploy everything at once
-        * Phased rollout
-            * Deploy new models incrementally
-            * Lower risk, lower cost
-        * Parallel adoption
-            * Run both models at once and ensure everything runs smoothly
-            * Lowest risk, highest time, highest cost
-            * Sometimes risk may be higher due to concurrency or data sync issues
-    * Common Approaches
-        * Rolling deployments — risk is multiple versions in production 
-        * Canary deployments — direct small amount of traffic to new version to see what happens
-        * A/B testing — run both at once, send half the traffic to A and other half to B
-    * Use CI/CD and more CD to deploy
-        * Continuous integration — merge code back to main branch frequently with testing as you go
-        * Continuous delivery — automate release process so you can deploy at the click of a button
-        * Continuous deployment — each code change is tested and deployed with no human intervention required
+* Types of Usage
+    * Offline Usage
+        * Make inferences in batch and return results as a set
+        * Entire dataset is required before using as an input
+        * Eg. predictive models with large historic dataset inputs
+    * Online Usage
+        * Make inferences on-demand via API or service
+        * Not viable for in-memory algorithms
+        * Eg. realtime fraud detection or autonomous machines
+* Deployment Types
+    * “Big Bang”
+        * Highest risk
+        * Deploy everything at once
+    * Phased rollout
+        * Deploy new models incrementally
+        * Lower risk, lower cost
+    * Parallel adoption
+        * Run both models at once and ensure everything runs smoothly
+        * Lowest risk, highest time, highest cost
+        * Sometimes risk may be higher due to concurrency or data sync issues
+* Common Approaches
+    * Rolling deployments — risk is multiple versions in production 
+    * Canary deployments — direct small amount of traffic to new version to see what happens
+    * A/B testing — run both at once, send half the traffic to A and other half to B
+* Use CI/CD and more CD to deploy
+    * Continuous integration — merge code back to main branch frequently with testing as you go
+    * Continuous delivery — automate release process so you can deploy at the click of a button
+    * Continuous deployment — each code change is tested and deployed with no human intervention required
 * AI Developer Services
     * Overview
         * Easy to use without ML knowledge
